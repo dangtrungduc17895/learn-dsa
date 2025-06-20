@@ -111,12 +111,11 @@ public class SingleLinkedList {
         Node prev = null;
         while (cur != null) {
             Node tmpNext = cur.next;
-            cur.next = null;
+            cur.next =  prev;
             prev = cur;
-
-            cur = cur.next;
+            cur = tmpNext;
         }
-        int a = 3;
+        this.head = prev;
     }
 
     public static void main(String[] args) {
@@ -128,5 +127,7 @@ public class SingleLinkedList {
         list.remove(3);
         list.printList();
         list.reverseList();
+
+        list.printList();
     }
 }
